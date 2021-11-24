@@ -1,0 +1,21 @@
+Kommando zum kompilieren unter Windows Powershell:
+
+g++ helloworld.cpp -o helloworld.exe
+
+
+a) Welche Vorteile bietet ein IDE?
+Antwort:
+
+-Code ist farbig hinterlegt. So lassen sich Fehler leichter erkennen. 
+-IDE hat die wichtigsten Werkzeuge zum Programmieren in einer Umgebung vereint.
+-Vorgänge können beschleunigt werden, dadurch das Werkzeuge untereinander Informationen austauschen.
+-IDE beinhaltet eine Debugger um Fehler leichter zu finden.
+
+
+b) Welche Nachteile hat ein IDE? 
+Antwort:
+
+-IDE braucht unter Umständen lange zum Laden.
+-Man muss IDE installieren, Updaten und für sich Anpassen.
+-Die IDE hat evntuell nicht für jede Plattform eine unterstützung.
+-IDE braucht Zeit und Übung um sie Effizient zu nutzen.
