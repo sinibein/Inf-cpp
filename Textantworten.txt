@@ -47,16 +47,16 @@ heißen die Schlüsselwörter zur Definition von Variablen der folgenden Typen:
 Antwort: float oder double
 
 2. Ganzen Zahlen
-Antwort: int
+Antwort: int oder long
 
 3. Zeichen
 Antwort: char
 
 4. Strings
-Antwort: ""
+Antwort: string
 
 5. Booleschen Werten
 Antwort: bool
 
 6. Natürlichen Zahlen
-Antwort: unsigned
+Antwort: unsigned int oder unsigned long
