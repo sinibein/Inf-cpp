@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Kaffeeautomat", "Kaffeeauto
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "B4.1.7 Standardeingabe", "B4.1.7 Standardeingabe\B4.1.7 Standardeingabe.vcxproj", "{945A00CE-B2BF-496D-B389-760A4C6638A8}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "B.4.2.1 Operatoren", "B.4.2.1 Operatoren\B.4.2.1 Operatoren.vcxproj", "{47188A95-B514-4BAD-B8D8-D8BFA96636DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{945A00CE-B2BF-496D-B389-760A4C6638A8}.Release|x64.Build.0 = Release|x64
 		{945A00CE-B2BF-496D-B389-760A4C6638A8}.Release|x86.ActiveCfg = Release|Win32
 		{945A00CE-B2BF-496D-B389-760A4C6638A8}.Release|x86.Build.0 = Release|Win32
+		{47188A95-B514-4BAD-B8D8-D8BFA96636DC}.Debug|x64.ActiveCfg = Debug|x64
+		{47188A95-B514-4BAD-B8D8-D8BFA96636DC}.Debug|x64.Build.0 = Debug|x64
+		{47188A95-B514-4BAD-B8D8-D8BFA96636DC}.Debug|x86.ActiveCfg = Debug|Win32
+		{47188A95-B514-4BAD-B8D8-D8BFA96636DC}.Debug|x86.Build.0 = Debug|Win32
+		{47188A95-B514-4BAD-B8D8-D8BFA96636DC}.Release|x64.ActiveCfg = Release|x64
+		{47188A95-B514-4BAD-B8D8-D8BFA96636DC}.Release|x64.Build.0 = Release|x64
+		{47188A95-B514-4BAD-B8D8-D8BFA96636DC}.Release|x86.ActiveCfg = Release|Win32
+		{47188A95-B514-4BAD-B8D8-D8BFA96636DC}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
