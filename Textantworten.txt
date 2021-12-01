@@ -36,3 +36,27 @@ Unterstrich anfangen. Befehle mit # sind Präprozessor Anweisungen.
 6. SiebenMeilenStiefel
 
 Antwort: zulässig.
+
+
+Aufgabe B.4.1.6
+
+Bevor man eine Variable in einem C++-Programm definiert, muss man ihren Datentyp angeben. Wie
+heißen die Schlüsselwörter zur Definition von Variablen der folgenden Typen:
+
+1. Gleitpunktzahlen
+Antwort: float oder double
+
+2. Ganzen Zahlen
+Antwort: int
+
+3. Zeichen
+Antwort: char
+
+4. Strings
+Antwort: ""
+
+5. Booleschen Werten
+Antwort: bool
+
+6. Natürlichen Zahlen
+Antwort: unsigned
