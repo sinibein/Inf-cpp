@@ -9,6 +9,12 @@ int main()
 	int milch = 1000;
 	int zucker = 500;
 
+	int pulvermenge = 5;
+	int wasser_kaffee = 125;
+	int wasser_espresso = 25;
+	int zucker = 3;
+	int milch = 30;
+
 	cout << "Herzlich Willkommen beim Kaffe-Automaten!" << endl
 		<< "Bitte w\x0084hlen Sie aus:" << endl
 		<< "(k) Kaffee" << endl
