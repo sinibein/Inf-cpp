@@ -17,59 +17,78 @@ int main()
 
 	double preis_tasse = 1.0;
 	double aufpreis = 0.1;
+	for (;;) {
+		cout << "Herzlich Willkommen beim Kaffe-Automaten!" << endl
+			<< "Preis pro Tasse:" << endl
+			<< "Kaffee oder Espresso: " << preis_tasse << " Euro" << endl
+			<< "Milch oder Zucker:  " << aufpreis << " Euro" << endl
+			<< endl
+			<< "Bitte w\x0084hlen Sie aus:" << endl
+			<< "(k) Kaffee" << endl
+			<< "(e) Espresso" << endl
+			<< "(s) Service-Mode" << endl;
 
-	cout << "Herzlich Willkommen beim Kaffe-Automaten!" << endl
-		<< "Preis pro Tasse:" << endl
-		<< "Kaffee oder Espresso: " << preis_tasse << " Euro" << endl
-		<< "Milch oder Zucker:  " << aufpreis << " Euro" << endl
-		<< endl 
-		<< "Bitte w\x0084hlen Sie aus:" << endl
-		<< "(k) Kaffee" << endl
-		<< "(e) Espresso" << endl
-		<< "(s) Service-Mode" << endl;
 
+		char zeichen;
+		std::cin >> zeichen;
 
-	char zeichen;
-	std::cin >> zeichen;
+		if (zeichen == 'k') {
+			char auswahl_zucker, auswahl_milch;
 
-	if (zeichen == 'k') {
-		char auswahl_zucker, auswahl_milch;
-		
-		cout << "Sie haben sich f\x81r die Auswahl Kaffee entschieden." << endl
-			<< "M\x94 \bchten sie Zucker (j\\n)? ";
-		cin >> auswahl_zucker;
+			cout << "Sie haben sich f\x81r die Auswahl Kaffee entschieden." << endl
+				<< "M\x94 \bchten sie Zucker (j\\n)? ";
+			cin >> auswahl_zucker;
 
-		cout << "M\x94 \bchten sie Milch (j\\n)? ";
-		cin >> auswahl_milch;
+			cout << "M\x94 \bchten sie Milch (j\\n)? ";
+			cin >> auswahl_milch;
 
-		if ( !(auswahl_milch == 'j' || auswahl_milch == 'n') || !(auswahl_zucker == 'j' || auswahl_zucker == 'n'))
+			if (!(auswahl_milch == 'j' || auswahl_milch == 'n') || !(auswahl_zucker == 'j' || auswahl_zucker == 'n'))
+			{
+				cout << "Falsche Eingabe!" << endl;
+				system("pause");
+				continue;
+			}
+
+			double preis = preis_tasse;
+			if (auswahl_milch == 'j')
+			{
+				preis += aufpreis;
+			}
+			if (auswahl_zucker == 'j')
+			{
+				preis += aufpreis;
+			}
+			cout << "Bitte " << preis << " Euro eingeben und ENTER druecken: " << endl;
+
+			double einzahlung;
+			cin >> einzahlung;
+			if (einzahlung < preis)
+			{
+				cout << "Zu wenig Geld, Bestellung abgebrochen" << endl;
+				system("pause");
+			}
+			else
+			{
+				cout << "Ihr Getraenk wird zubereitet....." << endl
+					<< "Bitte " << einzahlung - preis << " Euro Rueckgeld und das Getraenk entnehmen und eine Taske druecken" << endl;
+			}
+		}
+
+		else if (zeichen == 'e') {
+			cout << "Sie haben sich f\x81r die Auswahl Espresso entschieden.";
+		}
+
+		else if (zeichen == 's') {
+			cout << "Sie haben sich f\x81r die Auswahl Service-Mode entschieden.";
+		}
+
+		else if (zeichen == '!')
 		{
-			cout << "Falsche Eingabe!" << endl;
-			system("pause");
 			return 0;
 		}
 
-		double preis = preis_tasse;
-		if (auswahl_milch == 'j')
-		{
-			preis += aufpreis;
+		else {
+			cout << "Ung\x81ltige Auswahl." << endl;
 		}
-		if (auswahl_zucker == 'j')
-		{
-			preis += aufpreis;
-		}
-		cout << "Bitte " << preis << " Euro eingeben und ENTER druecken: " << endl;
-	}
-
-	else if (zeichen == 'e') {
-		cout << "Sie haben sich f\x81r die Auswahl Espresso entschieden.";
-	}
-
-	else if (zeichen == 's') {
-		cout << "Sie haben sich f\x81r die Auswahl Service-Mode entschieden.";
-	}
-
-	else {
-		cout << "Ung\x81ltige Auswahl.";
 	}
 }
