@@ -3,7 +3,11 @@ using namespace std;
 
 int main()
 {
-	char zeichen;
+	int kaffeebohnen = 1000;
+	int espressobohnen = 1000;
+	int wasser = 5000;
+	int milch = 1000;
+	int zucker = 500;
 
 	cout << "Herzlich Willkommen beim Kaffe-Automaten!" << endl
 		<< "Bitte w\x0084hlen Sie aus:" << endl
@@ -11,6 +15,8 @@ int main()
 		<< "(e) Espresso" << endl
 		<< "(s) Service-Mode" << endl;
 
+
+	char zeichen;
 	std::cin >> zeichen;
 
 	if (zeichen == 'k') {
