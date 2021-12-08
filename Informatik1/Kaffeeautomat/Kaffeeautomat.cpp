@@ -11,6 +11,21 @@ int main()
 		<< "(e) Espresso" << endl
 		<< "(s) Service-Mode" << endl;
 
-	cin >> zeichen;
-	cout << "Sie haben sich f\x0081r Auswahl " << zeichen << " entschieden";
+	std::cin >> zeichen;
+
+	if (zeichen == 'k') {
+		cout << "Sie haben sich f\x81r die Auswahl Kaffee entschieden.";
+	}
+
+	else if (zeichen == 'e') {
+		cout << "Sie haben sich f\x81r die Auswahl Espresso entschieden.";
+	}
+
+	else if (zeichen == 's') {
+		cout << "Sie haben sich f\x81r die Auswahl Service-Mode entschieden.";
+	}
+
+	else {
+		cout << "Ung\x81ltige Auswahl.";
+	}
 }
