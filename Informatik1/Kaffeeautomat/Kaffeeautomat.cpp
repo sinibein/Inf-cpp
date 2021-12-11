@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 int main()
@@ -18,7 +19,7 @@ int main()
 	double preis_tasse = 1.0;
 	double aufpreis = 0.1;
 	for (;;) {
-		cout << "Herzlich Willkommen beim Kaffe-Automaten!" << endl
+		cout << fixed << setprecision(1) <<  "Herzlich Willkommen beim Kaffe-Automaten!" << endl
 			<< "Preis pro Tasse:" << endl
 			<< "Kaffee oder Espresso: " << preis_tasse << " Euro" << endl
 			<< "Milch oder Zucker:  " << aufpreis << " Euro" << endl
@@ -62,7 +63,7 @@ int main()
 
 			double einzahlung;
 			cin >> einzahlung;
-			if (einzahlung < preis)
+			if (preis-einzahlung > 0.01)
 			{
 				cout << "Zu wenig Geld, Bestellung abgebrochen" << endl;
 				system("pause");
@@ -70,16 +71,88 @@ int main()
 			else
 			{
 				cout << "Ihr Getraenk wird zubereitet....." << endl
-					<< "Bitte " << einzahlung - preis << " Euro Rueckgeld und das Getraenk entnehmen und eine Taske druecken" << endl;
+					<< "Bitte " << einzahlung - preis << " Euro Rueckgeld und das Getraenk entnehmen und eine Taske dr\x81 \bcken" << endl;
+
+				vorrat_wasser -= wasser_kaffee;
+				vorrat_kaffeebohnen -= pulvermenge;
+				if (auswahl_milch == 'j')
+				{
+					vorrat_milch -= milch;
+				}
+				if (auswahl_zucker == 'j')
+				{
+					vorrat_zucker -= zucker;
+				}
 			}
 		}
 
 		else if (zeichen == 'e') {
-			cout << "Sie haben sich f\x81r die Auswahl Espresso entschieden.";
+			char auswahl_zucker, auswahl_milch;
+
+			cout << "Sie haben sich f\x81r die Auswahl Espresso entschieden." << endl
+				<< "M\x94 \bchten sie Zucker (j\\n)? ";
+			cin >> auswahl_zucker;
+
+			cout << "M\x94 \bchten sie Milch (j\\n)? ";
+			cin >> auswahl_milch;
+
+			if (!(auswahl_milch == 'j' || auswahl_milch == 'n') || !(auswahl_zucker == 'j' || auswahl_zucker == 'n'))
+			{
+				cout << "Falsche Eingabe!" << endl;
+				system("pause");
+				continue;
+			}
+
+			double preis = preis_tasse;
+			if (auswahl_milch == 'j')
+			{
+				preis += aufpreis;
+			}
+			if (auswahl_zucker == 'j')
+			{
+				preis += aufpreis;
+			}
+			cout << "Bitte " << preis << " Euro eingeben und ENTER druecken: " << endl;
+
+			double einzahlung;
+			cin >> einzahlung;
+			if (preis-einzahlung > 0.01)
+			{
+				cout << "Zu wenig Geld, Bestellung abgebrochen" << endl;
+				system("pause");
+			}
+			else
+			{
+				cout << "Ihr Getraenk wird zubereitet....." << endl
+					<< "Bitte " << einzahlung - preis << " Euro Rueckgeld und das Getraenk entnehmen und eine Taske dr\x81 \bcken" << endl;
+
+				vorrat_wasser -= wasser_espresso;
+				vorrat_espressobohnen -= pulvermenge;
+				if (auswahl_milch == 'j')
+				{
+					vorrat_milch -= milch;
+				}
+				if (auswahl_zucker == 'j')
+				{
+					vorrat_zucker -= zucker;
+				}
+			}
 		}
 
 		else if (zeichen == 's') {
-			cout << "Sie haben sich f\x81r die Auswahl Service-Mode entschieden.";
+			cout << "Service-Interface" << endl
+				<< "------------------------------------" << endl
+				<< "Noch vorhandene Mengen:" << endl
+				<< "Kaffee: " << vorrat_kaffeebohnen << "g  Milch: " << vorrat_milch << "ml" << endl
+				<< "Espresso: " << vorrat_espressobohnen << "g  Wasser: " << vorrat_wasser << "ml" << endl
+				<< "Zucker: " << vorrat_zucker << "g" << endl
+				<< "------------------------------------" << endl
+				<< "Mengen pro Tasse:" << endl
+				<< "Kaffe: " << pulvermenge << "g  Milch: " << milch << "ml" << endl
+				<< "Espresso: " << pulvermenge << "g  Wassser f\x81r Kaffee: " << wasser_kaffee << "ml" << endl
+				<< "Zucker: " << zucker << "g  Wasser f\x81r Espresso: " << wasser_espresso << "ml" << endl
+				<< "------------------------------------" << endl;
+			system("pause");
 		}
 
 		else if (zeichen == '!')
