@@ -39,5 +39,7 @@ int main()
 		<< "Mittelwert: " << mittelwert<< endl
 		<< "Varianz: " << varianz << endl;
 
+	delete[] messwerte;
+
 	return 0;
 }
