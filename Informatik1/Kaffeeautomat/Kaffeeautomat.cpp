@@ -1,9 +1,12 @@
 #include <iostream>
 #include <iomanip>
+#include <conio.h>
 using namespace std;
 
 int main()
 {
+	const char service_passwort[] =  "abcdef";
+
 	int vorrat_kaffeebohnen = 1000;
 	int vorrat_espressobohnen = 1000;
 	int vorrat_wasser = 5000;
@@ -71,6 +74,7 @@ int main()
 			}
 			else
 			{
+				double rueckgeld = einzahlung - preis;
 				cout << "Ihr Getr\x84 \bnk wird zubereitet....." << endl
 					<< "Bitte " << abs(einzahlung-preis) << " Euro R\x81 \bckgeld und das Getraenk entnehmen und eine Taske dr\x81 \bcken" << endl; //abs() muss verwendet werden, da sonst manchmal -0.0 Euro Rückgeld angezeigt wird
 
@@ -140,7 +144,31 @@ int main()
 			}
 		}
 
-		else if (zeichen == 's') {
+		else if (zeichen == 's') 
+		{
+			cout << "Bitte geben Sie das Passwort ein:";
+			char zeichen[6];
+			for (int i = 0; i < 6; i++)
+			{
+				zeichen[i] = _getch();
+				cout << "*";
+			}
+			cout << endl;
+			
+			bool passwort_korrekt = true;
+			for (int i = 0; i < 6; i++)
+			{
+				if (zeichen[i] != service_passwort[i])
+				{
+					passwort_korrekt = false;
+					cout << "Falsches Passwort! Zugang zum Service-Interface verweigert!" << endl;
+					system("pause");
+					break;
+				}
+			}
+			if (!passwort_korrekt) continue;
+			
+
 			cout << "Service-Interface" << endl
 				<< "------------------------------------" << endl
 				<< "Noch vorhandene Mengen:" << endl
