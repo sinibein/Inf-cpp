@@ -4,7 +4,7 @@ using namespace std;
 int main() {
 
 	double Messwerte [10] = {99.975, 100.002, 99.999, 99.982, 100.100, 100.009, 99.826, 100.547, 100.023, 100.008};
-	double mittelw, varianz, sum1{ 0 }, sum2{ 0 },
+	double mittelw, varianz, sum1{ 0 }, sum2{ 0 };
 	int n = sizeof(Messwerte) / sizeof(Messwerte[0]);
 
 	//Mittelwert berechenen
@@ -12,7 +12,7 @@ int main() {
 	for (int i =0; i < n; i++)
 		sum1 += Messwerte[i];
 
-	mittelw = sum1 / double(n);
+	mittelw = sum1 / n;
 
 
 	// Varianz berechnen
@@ -21,7 +21,7 @@ int main() {
 		sum2 += pow((Messwerte[i] - mittelw),2);
 	
 
-	varianz = sum2 / (double(n)-1);
+	varianz = sum2 / (n-1);
 
 	cout << "Mittelwert = " << mittelw << "\nVarianz = " << varianz << endl;
 
