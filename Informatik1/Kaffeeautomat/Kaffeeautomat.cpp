@@ -22,6 +22,7 @@ int main()
 	double preis_tasse = 1.0;
 	double aufpreis = 0.1;
 	for (;;) {
+		system("cls");
 		cout << fixed << setprecision(1)  //damit bei den Preisen nur eine Nachkommastelle angezeigt wird  
 			<<  "Herzlich Willkommen beim Kaffe-Automaten!" << endl
 			<< "Preis pro Tasse:" << endl
@@ -77,7 +78,7 @@ int main()
 				double rueckgeld = einzahlung - preis;
 				cout << "Ihr Getr\x84 \bnk wird zubereitet....." << endl
 					<< "Bitte " << abs(einzahlung-preis) << " Euro R\x81 \bckgeld und das Getraenk entnehmen und eine Taske dr\x81 \bcken" << endl; //abs() muss verwendet werden, da sonst manchmal -0.0 Euro Rückgeld angezeigt wird
-
+				system("pause"); 
 				vorrat_wasser -= wasser_kaffee;
 				vorrat_kaffeebohnen -= pulvermenge;
 				if (auswahl_milch == 'j')
@@ -130,7 +131,7 @@ int main()
 			{
 				cout << "Ihr Getr\x84 \bnk wird zubereitet....." << endl
 					<< "Bitte " << abs(einzahlung - preis)<< " Euro R\x81 \bckgeld und das Getraenk entnehmen und eine Taske dr\x81 \bcken" << endl; //abs() muss verwendet werden, da sonst manchmal -0.0 Euro Rückgeld angezeigt wird
-
+				system("pause");
 				vorrat_wasser -= wasser_espresso;
 				vorrat_espressobohnen -= pulvermenge;
 				if (auswahl_milch == 'j')
