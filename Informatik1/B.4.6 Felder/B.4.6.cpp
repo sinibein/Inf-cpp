@@ -1,4 +1,4 @@
-#include<iostream>											
+#include <iostream>											
 using namespace std;
 
 int main() {
@@ -22,6 +22,14 @@ int main() {
 	
 
 	varianz = sum2 / (n-1);
+
+	cout << "Messwerte [m]" << endl
+		<< "---------" << endl;
+	for (int i=0; i<n; i++)
+	{
+		cout << Messwerte[i] << endl;
+	}
+	cout << endl;
 
 	cout << "Mittelwert = " << mittelw << "\nVarianz = " << varianz << endl;
 
