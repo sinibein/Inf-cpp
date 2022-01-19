@@ -3,31 +3,38 @@
 #include <conio.h>
 using namespace std;
 
-int main()
+struct daten
 {
-	const char service_passwort[] =  "abcdef";
-
 	int vorrat_kaffeebohnen = 1000;
 	int vorrat_espressobohnen = 1000;
 	int vorrat_wasser = 5000;
 	int vorrat_milch = 1000;
 	int vorrat_zucker = 500;
 
-	int pulvermenge = 5;
-	int wasser_kaffee = 125;
-	int wasser_espresso = 25;
-	int zucker = 3;
-	int milch = 30;
+	int menge_kaffee_pro_tasse = 5;
+	int menge_espresso_pro_tasse = 5;
+	int wasser_pro_tasse_kaffee = 125;
+	int wasser_pro_tasse_espresso = 25;
+	int menge_zucker_pro_tasse = 3;
+	int menge_milch_pro_tasse = 30;
 
-	double preis_tasse = 1.0;
-	double aufpreis = 0.1;
+	double preis_pro_tasse = 1.0;
+	double preis_zutaten_pro_tasse = 0.1;
+};
+
+
+int main()
+{
+	const char service_passwort[] =  "abcdef";
+	daten werte;
+
 	for (;;) {
 		system("cls");
 		cout << fixed << setprecision(1)  //damit bei den Preisen nur eine Nachkommastelle angezeigt wird  
 			<<  "Herzlich Willkommen beim Kaffe-Automaten!" << endl
 			<< "Preis pro Tasse:" << endl
-			<< "Kaffee oder Espresso: " << preis_tasse << " Euro" << endl
-			<< "Milch oder Zucker:  " << aufpreis << " Euro" << endl
+			<< "Kaffee oder Espresso: " << werte.preis_pro_tasse << " Euro" << endl
+			<< "Milch oder Zucker:  " << werte.preis_zutaten_pro_tasse << " Euro" << endl
 			<< endl
 			<< "Bitte w\x0084hlen Sie aus:" << endl
 			<< "(k) Kaffee" << endl
@@ -55,14 +62,14 @@ int main()
 				continue;
 			}
 
-			double preis = preis_tasse;
+			double preis = werte.preis_pro_tasse;
 			if (auswahl_milch == 'j')
 			{
-				preis += aufpreis;
+				preis += werte.preis_zutaten_pro_tasse;
 			}
 			if (auswahl_zucker == 'j')
 			{
-				preis += aufpreis;
+				preis += werte.preis_zutaten_pro_tasse;
 			}
 			cout << "Bitte " << preis << " Euro eingeben und ENTER druecken: " << endl;
 
@@ -79,15 +86,15 @@ int main()
 				cout << "Ihr Getr\x84 \bnk wird zubereitet....." << endl
 					<< "Bitte " << abs(einzahlung-preis) << " Euro R\x81 \bckgeld und das Getraenk entnehmen und eine Taske dr\x81 \bcken" << endl; //abs() muss verwendet werden, da sonst manchmal -0.0 Euro Rückgeld angezeigt wird
 				system("pause"); 
-				vorrat_wasser -= wasser_kaffee;
-				vorrat_kaffeebohnen -= pulvermenge;
+				werte.vorrat_wasser -= werte.wasser_pro_tasse_kaffee;
+				werte.vorrat_kaffeebohnen -= werte.menge_kaffee_pro_tasse;
 				if (auswahl_milch == 'j')
 				{
-					vorrat_milch -= milch;
+					werte.vorrat_milch -= werte.menge_milch_pro_tasse;
 				}
 				if (auswahl_zucker == 'j')
 				{
-					vorrat_zucker -= zucker;
+					werte.vorrat_zucker -= werte.menge_zucker_pro_tasse;
 				}
 			}
 		}
@@ -109,14 +116,14 @@ int main()
 				continue;
 			}
 
-			double preis = preis_tasse;
+			double preis = werte.preis_pro_tasse;
 			if (auswahl_milch == 'j')
 			{
-				preis += aufpreis;
+				preis += werte.preis_zutaten_pro_tasse;
 			}
 			if (auswahl_zucker == 'j')
 			{
-				preis += aufpreis;
+				preis += werte.preis_zutaten_pro_tasse;
 			}
 			cout << "Bitte " << preis << " Euro eingeben und ENTER druecken: " << endl;
 
@@ -132,15 +139,15 @@ int main()
 				cout << "Ihr Getr\x84 \bnk wird zubereitet....." << endl
 					<< "Bitte " << abs(einzahlung - preis)<< " Euro R\x81 \bckgeld und das Getraenk entnehmen und eine Taske dr\x81 \bcken" << endl; //abs() muss verwendet werden, da sonst manchmal -0.0 Euro Rückgeld angezeigt wird
 				system("pause");
-				vorrat_wasser -= wasser_espresso;
-				vorrat_espressobohnen -= pulvermenge;
+				werte.vorrat_wasser -= werte.wasser_pro_tasse_espresso;
+				werte.vorrat_espressobohnen -= werte.menge_espresso_pro_tasse;
 				if (auswahl_milch == 'j')
 				{
-					vorrat_milch -= milch;
+					werte.vorrat_milch -= werte.menge_milch_pro_tasse;
 				}
 				if (auswahl_zucker == 'j')
 				{
-					vorrat_zucker -= zucker;
+					werte.vorrat_zucker -= werte.menge_zucker_pro_tasse;
 				}
 			}
 		}
@@ -173,14 +180,14 @@ int main()
 			cout << "Service-Interface" << endl
 				<< "------------------------------------" << endl
 				<< "Noch vorhandene Mengen:" << endl
-				<< "Kaffee: " << vorrat_kaffeebohnen << "g  Milch: " << vorrat_milch << "ml" << endl
-				<< "Espresso: " << vorrat_espressobohnen << "g  Wasser: " << vorrat_wasser << "ml" << endl
-				<< "Zucker: " << vorrat_zucker << "g" << endl
+				<< "Kaffee: " << werte.vorrat_kaffeebohnen << "g  Milch: " << werte.vorrat_milch << "ml" << endl
+				<< "Espresso: " << werte.vorrat_espressobohnen << "g  Wasser: " << werte.vorrat_wasser << "ml" << endl
+				<< "Zucker: " << werte.vorrat_zucker << "g" << endl
 				<< "------------------------------------" << endl
 				<< "Mengen pro Tasse:" << endl
-				<< "Kaffe: " << pulvermenge << "g  Milch: " << milch << "ml" << endl
-				<< "Espresso: " << pulvermenge << "g  Wassser f\x81r Kaffee: " << wasser_kaffee << "ml" << endl
-				<< "Zucker: " << zucker << "g  Wasser f\x81r Espresso: " << wasser_espresso << "ml" << endl
+				<< "Kaffe: " << werte.menge_kaffee_pro_tasse << "g  Milch: " << werte.menge_milch_pro_tasse << "ml" << endl
+				<< "Espresso: " << werte.menge_espresso_pro_tasse << "g  Wassser f\x81r Kaffee: " << werte.wasser_pro_tasse_kaffee << "ml" << endl
+				<< "Zucker: " << werte.menge_zucker_pro_tasse << "g  Wasser f\x81r Espresso: " << werte.wasser_pro_tasse_espresso << "ml" << endl
 				<< "------------------------------------" << endl;
 			system("pause");
 		}
