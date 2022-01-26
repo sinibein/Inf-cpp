@@ -1,6 +1,13 @@
 #include <iostream>
 #include <iomanip>
 #include <conio.h>
+
+#define TEST
+
+//(#X) liefert den Namen der übergebenen Variable X
+#define PRINTVARIABLE(X) cout << endl << (#X) << "=" << (X) << endl
+#define PRINTSTRING(X) cout << endl << X << endl
+
 using namespace std;
 
 struct daten
@@ -26,6 +33,10 @@ void SI(daten kaffee)
 {
 	const char service_passwort[] = "abcdef";
 
+	#ifdef TEST
+		PRINTVARIABLE(service_passwort);
+	#endif#
+	
 	cout << "Bitte geben Sie das Passwort ein:";
 	char zeichen[6];
 	for (int i = 0; i < 6; i++)
@@ -119,23 +130,32 @@ void UI_zusaetze_kaffee(bool beide, bool* pbmilch, bool *pbzucker)
 	{
 		*pbzucker = true;
 	}
+
+#ifdef TEST
+	PRINTVARIABLE(*pbmilch);
+	PRINTVARIABLE(*pbzucker);
+#endif // TEST
+
 }
 
 bool UI(bool* pbkaffee, bool* pbmilch, bool* pbzucker, bool* pbespresso, bool* pbservice, daten kaffee)
 {
 	system("cls");
 	for(;;){
+#ifdef TEST
+		PRINTSTRING("Zum beenden '!' drücken");
+#endif 
 
-	cout << fixed << setprecision(1)  //damit bei den Preisen nur eine Nachkommastelle angezeigt wird  
-		<< "Herzlich Willkommen beim Kaffe-Automaten!" << endl
-		<< "Preis pro Tasse:" << endl
-		<< "Kaffee oder Espresso: " << kaffee.preis_pro_tasse << " Euro" << endl
-		<< "Milch oder Zucker:  " << kaffee.preis_zutaten_pro_tasse << " Euro" << endl
-		<< endl
-		<< "Bitte w\x0084hlen Sie aus:" << endl
-		<< "(k) Kaffee" << endl
-		<< "(e) Espresso" << endl
-		<< "(s) Service-Mode" << endl;
+		cout << fixed << setprecision(1)  //damit bei den Preisen nur eine Nachkommastelle angezeigt wird  
+			<< "Herzlich Willkommen beim Kaffe-Automaten!" << endl
+			<< "Preis pro Tasse:" << endl
+			<< "Kaffee oder Espresso: " << kaffee.preis_pro_tasse << " Euro" << endl
+			<< "Milch oder Zucker:  " << kaffee.preis_zutaten_pro_tasse << " Euro" << endl
+			<< endl
+			<< "Bitte w\x0084hlen Sie aus:" << endl
+			<< "(k) Kaffee" << endl
+			<< "(e) Espresso" << endl
+			<< "(s) Service-Mode" << endl;
 
 	char zeichen;
 	std::cin >> zeichen;
