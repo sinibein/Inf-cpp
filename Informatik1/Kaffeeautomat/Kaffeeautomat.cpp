@@ -200,6 +200,7 @@ int main()
 			else
 			{
 				double rueckgeld = einzahlung - preis;
+				mengen_aktualisieren(bkaffee, bmilch, bzucker, bespresso, &kaffee);
 				cout << "Ihr Getr\x84 \bnk wird zubereitet....." << endl
 					<< "Bitte " << abs(einzahlung - preis) << " Euro R\x81 \bckgeld und das Getraenk entnehmen und eine Taske dr\x81 \bcken" << endl; //abs() muss verwendet werden, da sonst manchmal -0.0 Euro Rückgeld angezeigt wird
 				system("pause");
