@@ -121,10 +121,11 @@ void UI_zusaetze_kaffee(bool beide, bool* pbmilch, bool *pbzucker)
 	}
 }
 
-
 bool UI(bool* pbkaffee, bool* pbmilch, bool* pbzucker, bool* pbespresso, bool* pbservice, daten kaffee)
 {
 	system("cls");
+	for(;;){
+
 	cout << fixed << setprecision(1)  //damit bei den Preisen nur eine Nachkommastelle angezeigt wird  
 		<< "Herzlich Willkommen beim Kaffe-Automaten!" << endl
 		<< "Preis pro Tasse:" << endl
@@ -135,25 +136,27 @@ bool UI(bool* pbkaffee, bool* pbmilch, bool* pbzucker, bool* pbespresso, bool* p
 		<< "(k) Kaffee" << endl
 		<< "(e) Espresso" << endl
 		<< "(s) Service-Mode" << endl;
-		
+
 	char zeichen;
 	std::cin >> zeichen;
-
 	if (zeichen == 'k')
 	{
 		cout << "Sie haben sich f\x81r die Auswahl Kaffee entschieden." << endl;
 		UI_zusaetze_kaffee(true, pbmilch, pbzucker);
 		*pbkaffee = true;
+		return true;
 	}
 	else if (zeichen == 'e')
 	{
 		cout << "Sie haben sich f\x81r die Auswahl Espresso entschieden." << endl;
 		UI_zusaetze_kaffee(false, pbmilch, pbzucker);
 		*pbespresso = true;
+		return true;
 	}
 	else if (zeichen == 's')
 	{
 		*pbservice = true;
+		return true;
 	}
 	else if (zeichen == '!')
 	{
@@ -162,6 +165,7 @@ bool UI(bool* pbkaffee, bool* pbmilch, bool* pbzucker, bool* pbespresso, bool* p
 	else {
 		cout << "Ung\x81ltige Auswahl." << endl;
 	}
+}
 }
 
 int main()
@@ -176,23 +180,30 @@ int main()
 		{
 			break;
 		}
-		preis = preis_berechnen(bkaffee, bmilch, bzucker, bespresso, kaffee);
 
-		cout << "Bitte " << preis << " Euro eingeben und ENTER druecken: " << endl;
-
-		double einzahlung;
-		cin >> einzahlung;
-		if (preis - einzahlung > 0.01)
+		if (bservice)
 		{
-			cout << "Zu wenig Geld, Bestellung abgebrochen" << endl;
-			system("pause");
+			SI(kaffee);
 		}
-		else
-		{
-			double rueckgeld = einzahlung - preis;
-			cout << "Ihr Getr\x84 \bnk wird zubereitet....." << endl
-				<< "Bitte " << abs(einzahlung - preis) << " Euro R\x81 \bckgeld und das Getraenk entnehmen und eine Taske dr\x81 \bcken" << endl; //abs() muss verwendet werden, da sonst manchmal -0.0 Euro Rückgeld angezeigt wird
-			system("pause");
+		else {
+			preis = preis_berechnen(bkaffee, bmilch, bzucker, bespresso, kaffee);
+
+			cout << "Bitte " << preis << " Euro eingeben und ENTER druecken: " << endl;
+
+			double einzahlung;
+			cin >> einzahlung;
+			if (preis - einzahlung > 0.01)
+			{
+				cout << "Zu wenig Geld, Bestellung abgebrochen" << endl;
+				system("pause");
+			}
+			else
+			{
+				double rueckgeld = einzahlung - preis;
+				cout << "Ihr Getr\x84 \bnk wird zubereitet....." << endl
+					<< "Bitte " << abs(einzahlung - preis) << " Euro R\x81 \bckgeld und das Getraenk entnehmen und eine Taske dr\x81 \bcken" << endl; //abs() muss verwendet werden, da sonst manchmal -0.0 Euro Rückgeld angezeigt wird
+				system("pause");
+			}
 		}
 	}
 }
