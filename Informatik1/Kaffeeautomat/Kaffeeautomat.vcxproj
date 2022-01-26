@@ -139,7 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Funktionen.cpp" />
     <ClCompile Include="Kaffeeautomat.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="kaffeeautomat.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
