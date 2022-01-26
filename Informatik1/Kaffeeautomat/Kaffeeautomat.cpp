@@ -2,7 +2,7 @@
 #include <iomanip>
 #include <conio.h>
 using namespace std;
-
+//Das ist ein Test
 struct daten
 {
 	int vorrat_kaffeebohnen = 1000;
@@ -125,6 +125,8 @@ void UI_zusaetze_kaffee(bool beide, bool* pbmilch, bool *pbzucker)
 bool UI(bool* pbkaffee, bool* pbmilch, bool* pbzucker, bool* pbespresso, bool* pbservice, daten kaffee)
 {
 	system("cls");
+	for(;;){
+
 	cout << fixed << setprecision(1)  //damit bei den Preisen nur eine Nachkommastelle angezeigt wird  
 		<< "Herzlich Willkommen beim Kaffe-Automaten!" << endl
 		<< "Preis pro Tasse:" << endl
@@ -135,25 +137,27 @@ bool UI(bool* pbkaffee, bool* pbmilch, bool* pbzucker, bool* pbespresso, bool* p
 		<< "(k) Kaffee" << endl
 		<< "(e) Espresso" << endl
 		<< "(s) Service-Mode" << endl;
-		
+
 	char zeichen;
 	std::cin >> zeichen;
-
 	if (zeichen == 'k')
 	{
 		cout << "Sie haben sich f\x81r die Auswahl Kaffee entschieden." << endl;
 		UI_zusaetze_kaffee(true, pbmilch, pbzucker);
 		*pbkaffee = true;
+		return true;
 	}
 	else if (zeichen == 'e')
 	{
 		cout << "Sie haben sich f\x81r die Auswahl Espresso entschieden." << endl;
 		UI_zusaetze_kaffee(false, pbmilch, pbzucker);
 		*pbespresso = true;
+		return true;
 	}
 	else if (zeichen == 's')
 	{
 		*pbservice = true;
+		return true;
 	}
 	else if (zeichen == '!')
 	{
@@ -162,6 +166,7 @@ bool UI(bool* pbkaffee, bool* pbmilch, bool* pbzucker, bool* pbespresso, bool* p
 	else {
 		cout << "Ung\x81ltige Auswahl." << endl;
 	}
+}
 }
 
 int main()
