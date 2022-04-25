@@ -1,7 +1,7 @@
 #include "Auto.h"
 
 //Objekt im Datensegment erstellen, allgemeinen Konstruktor aufrufen
-Auto a(4, "weiﬂ", 50, 5, 5.7, 20, 40.3);
+Auto a(4, "weiﬂ", 50, 5, 5, 10, 40.3);
 
 int main()
 {

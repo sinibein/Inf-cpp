@@ -27,5 +27,27 @@ public:
 
 	//Destruktor
 	~Auto();
+
+	//Getter
+	float fahren(float strecke);
+	int get_radzahl();
+	string get_farbe();
+	float get_ps();
+	int get_anzahl_sitze();
+	float get_spritverbrauch();
+	float get_tankinhalt();
+	float get_tankgroesse();
+
+	void tank_auffuellen(float spritmenge)
+	{
+		if (spritmenge + tankinhalt > tankgroesse)
+		{
+			tankinhalt = tankgroesse;
+		}
+		else
+		{
+			tankinhalt += spritmenge;
+		}
+	}
 };
 
