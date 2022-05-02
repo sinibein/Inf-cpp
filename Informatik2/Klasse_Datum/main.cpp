@@ -5,6 +5,8 @@ using namespace std;
 
 int main()
 {	
+	Datum::Plappern(true);
+
 	int tag = 20, monat = 10, jahr = 2024;
 	Datum a(tag, monat, jahr);
 	cout << "Datum erstellt: " << tag << "." << monat << "." << jahr << "     ist Schaltjahr: " << Datum::istSchaltjahr(jahr) << "       Tag des Jahres: " << a.TagDesJahres() << endl;
@@ -14,11 +16,13 @@ int main()
 	Datum b(tag, monat, jahr);
 	cout << "Datum erstellt: " << tag << "." << monat << "." << jahr << "     ist Schaltjahr: " << Datum::istSchaltjahr(jahr) << "       Tag des Jahres: " << b.TagDesJahres() << endl;
 
+	Datum::Plappern(false);
 
 	tag = 20, monat = 10, jahr = 2015;
 	Datum c(tag, monat, jahr);
 	cout << "Datum erstellt: " << tag << "." << monat << "." << jahr << "     ist Schaltjahr: " << Datum::istSchaltjahr(jahr) << "       Tag des Jahres: " << c.TagDesJahres() << endl;
 
+	Datum::Plappern(true);
 
 	Datum d(1, 1, 1);
 	Datum d2(1, 1, 1);
