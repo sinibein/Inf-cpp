@@ -1,8 +1,21 @@
 #include "Datum.h"
 
+
+int Datum::anzahl_objekte = 0;
+
 Datum::Datum(int Tag, int Monat, int Jahr) : tag(Tag), monat(Monat), jahr(Jahr)
 {
-};
+	if (Datum::anzahl_objekte > 10)
+	{
+		cout << "Es wurden bereits "<< Datum::anzahl_objekte << " Exemplare erzeugt!" << endl;
+	}
+	Datum::anzahl_objekte++;
+}
+
+Datum::~Datum()
+{
+	anzahl_objekte--;
+}
 
 int Datum::TagDesJahres()
 {

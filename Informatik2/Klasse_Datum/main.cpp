@@ -18,5 +18,4 @@ int main()
 	tag = 20, monat = 10, jahr = 2015;
 	Datum c(tag, monat, jahr);
 	cout << "Datum erstellt: " << tag << "." << monat << "." << jahr << "     ist Schaltjahr: " << Datum::istSchaltjahr(jahr) << "       Tag des Jahres: " << c.TagDesJahres() << endl;
-	
 }
