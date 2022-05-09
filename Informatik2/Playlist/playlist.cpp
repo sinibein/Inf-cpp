@@ -323,10 +323,13 @@ void playlist::BenutzerdatenEingeben (string &titel, string &interpret, mkat & k
 
 	// aktuelle Daten loeschen
 	AlleTitelLoeschen ();
-	
+
+	//end_ptr hat immer das letzte Element der Liste
+	struct titel* end_ptr = start_pointer;
+
 	while (!Quelle.eof())   
 	{
-		struct titel * ptr;
+		struct titel* ptr;
 		getline(Quelle, hilfe);
 		if (hilfe.length() == 0)
 			break;
@@ -336,13 +339,24 @@ void playlist::BenutzerdatenEingeben (string &titel, string &interpret, mkat & k
 			system ("pause");
 			return;
 		}else {
-
 			ptr->name = hilfe;
 			getline (Quelle, ptr->interpret);
 			getline (Quelle, hilfe);
 			ptr->kategorie = static_cast<mkat> (atoi(hilfe.c_str()));
-			ptr->next = start_pointer;
-			start_pointer = ptr;
+			ptr->next = NULL;
+
+			//Beim ersten Titel wird der start_pointer überschrieben
+			if (start_pointer == NULL)
+			{
+				start_pointer = ptr;
+				end_ptr = start_pointer;
+			}
+			else {
+				end_ptr->next = ptr;
+				end_ptr = end_ptr->next;
+				
+			}
+
 		}
 	}
 	
