@@ -12,6 +12,9 @@
 #include <string>
 #include "playlist.h"
 #include <fstream>
+#include <conio.h> 
+#include <time.h>
+
 
 using namespace std;
 
@@ -363,6 +366,45 @@ void playlist::BenutzerdatenEingeben (string &titel, string &interpret, mkat & k
 	Quelle.close ();
 }  
 
+/*====================================================*/
+void playlist::Abspielen(bool ganzePlaylistSpielen)
+{
+	system("cls");
+	
+	if (ganzePlaylistSpielen)
+	{
+		struct titel* ptr = start_pointer;
+		while (ptr != NULL)
+		{
+			cout << ptr->name << " ," << ptr->interpret << " ," << enumkat_in_string(ptr->kategorie) << " wird abgespielt...." << endl
+				<< '\a';
+			int start = clock();
+			while (clock() - start < 3000);
 
+			ptr = ptr->next;
+		}
+	}
+
+	else {
+		cout << "Titel zum abspielen eingeben: ";
+		string name, interpret;
+		enum mkat kategorie;
+
+		cin >> name;
+		if (TitelSuchenundAnzeigen(name, interpret, kategorie))
+		{
+			cout << name << " ," << interpret << " ," << enumkat_in_string(kategorie) << " wird abgespielt...." << endl
+				<< '\a';
+			int start = clock();
+			while (clock() - start < 1000);
+			system("pause");
+		}
+		else
+		{
+			cout << "Titel nicht gefunden" << endl;
+			system("pause");
+		}
+	}
+}
 
 

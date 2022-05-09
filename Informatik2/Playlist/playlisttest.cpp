@@ -73,8 +73,7 @@ int main(void)
 			break;
 		case 5:
 			// Playlist abspielen
-			cout << "noch nicht implementiert" << endl;
-			Sleep(2000);
+			my_playlist.Abspielen(true);
 			break;
 		case 6:
 			 // Playlist speichern */
@@ -90,6 +89,9 @@ int main(void)
 			my_playlist.PlaylistLaden ();
 			break;
 		case 8:
+			break;
+		case 9:
+			my_playlist.Abspielen(false);
 			break;
 		default:
 			cout << "\nFalsche Eingabe!!!\n";
@@ -122,6 +124,7 @@ int main(void)
 	cout << "Playlist speichern..........6\n";
 	cout << "Playlist laden..............7\n";
 	cout << "Programm beenden............8\n";
+	cout << "Titel abspielen.............9\n";
 	cout << "\nBitte geben Sie eine Zahl ein:";
 	// Eingabepuffer leeren
 	cin.seekg(0,std::ios::end);
