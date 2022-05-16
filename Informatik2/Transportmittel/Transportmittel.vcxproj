@@ -139,12 +139,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Auto.h" />
+    <ClInclude Include="Fahrrad.h" />
     <ClInclude Include="LandTransportmittel.h" />
+    <ClInclude Include="Rikscha.h" />
     <ClInclude Include="Transportmittel.h" />
     <ClInclude Include="WasserTransportmittel.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Auto.cpp" />
+    <ClCompile Include="Fahrrad.cpp" />
     <ClCompile Include="LandTransportmittel.cpp" />
+    <ClCompile Include="Rikscha.cpp" />
     <ClCompile Include="Transportmittel.cpp" />
     <ClCompile Include="transportmittel_test.cpp" />
     <ClCompile Include="WasserTransportmittel.cpp" />

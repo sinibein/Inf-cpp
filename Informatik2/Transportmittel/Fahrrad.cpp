@@ -12,7 +12,7 @@ int Fahrrad::getAnzahlgaenge()
 
 void Fahrrad::schieben(double km)
 {
-	cout << "Fahrrad wird " << km << " geschoben" << endl;
+	cout << "Fahrrad wird " << km << "km geschoben" << endl;
 }
 
 void Fahrrad::freihaendigfahren(string name)
