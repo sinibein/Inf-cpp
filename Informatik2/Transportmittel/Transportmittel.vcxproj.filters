@@ -24,6 +24,15 @@
     <ClInclude Include="WasserTransportmittel.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="Fahrrad.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Rikscha.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Auto.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Transportmittel.cpp">
@@ -36,6 +45,15 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="WasserTransportmittel.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Fahrrad.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Rikscha.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Auto.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
