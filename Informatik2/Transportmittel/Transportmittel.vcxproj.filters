@@ -21,6 +21,9 @@
     <ClInclude Include="LandTransportmittel.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="WasserTransportmittel.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Transportmittel.cpp">
@@ -30,6 +33,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="LandTransportmittel.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="WasserTransportmittel.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

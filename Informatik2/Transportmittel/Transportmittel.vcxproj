@@ -141,11 +141,13 @@
   <ItemGroup>
     <ClInclude Include="LandTransportmittel.h" />
     <ClInclude Include="Transportmittel.h" />
+    <ClInclude Include="WasserTransportmittel.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LandTransportmittel.cpp" />
     <ClCompile Include="Transportmittel.cpp" />
     <ClCompile Include="transportmittel_test.cpp" />
+    <ClCompile Include="WasserTransportmittel.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
