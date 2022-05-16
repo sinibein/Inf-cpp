@@ -139,9 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="LandTransportmittel.h" />
     <ClInclude Include="Transportmittel.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="LandTransportmittel.cpp" />
     <ClCompile Include="Transportmittel.cpp" />
     <ClCompile Include="transportmittel_test.cpp" />
   </ItemGroup>

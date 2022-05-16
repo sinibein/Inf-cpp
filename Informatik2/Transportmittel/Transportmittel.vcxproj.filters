@@ -18,12 +18,18 @@
     <ClInclude Include="Transportmittel.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="LandTransportmittel.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Transportmittel.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="transportmittel_test.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="LandTransportmittel.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
