@@ -14,6 +14,7 @@ public:
 
 	Complex operator+(const Complex& c);
 	Complex operator-(const Complex& c);
+	Complex operator/(const Complex& c);
 
 };
 
@@ -73,3 +74,18 @@ istream& operator>>(istream& is, Complex& c)
 
 	return is;
 }
+
+
+Complex Complex::operator/(const Complex& c2)
+{
+	double re, im,
+		a = this->re,
+		b = this->im,
+		c = c2.re,
+		d = c2.im;
+	
+	re = (a * c + b * d) / (c * c + d * d);
+	im = (b * c - a * d) / (c * c + d * d);
+	return Complex(re, im);
+}
+
