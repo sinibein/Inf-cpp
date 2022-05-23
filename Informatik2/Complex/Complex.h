@@ -1,4 +1,7 @@
 #pragma once
+#include <iostream>
+using namespace std;
+
 class Complex {
 private:
 	double re, im;
@@ -11,6 +14,7 @@ public:
 
 	Complex operator+(const Complex& c);
 	Complex operator-(const Complex& c);
+
 };
 
 Complex::Complex(double Re, double Im): re(Re), im(Im)
@@ -45,4 +49,27 @@ Complex Complex::operator+(const Complex& c)
 Complex Complex::operator-(const Complex& c)
 {
 	return Complex(this->re - c.re, this->im - c.im);
+}
+
+
+
+ostream& operator<<(ostream& os, Complex& c)
+{
+	if(c.getImaginaerteil() >= 0)
+		os << c.getRealteil() << "+" << c.getImaginaerteil() << "i";
+	else
+		os << c.getRealteil() << "-" << abs(c.getImaginaerteil()) << "i";
+
+	return os;
+}
+
+istream& operator>>(istream& is, Complex& c)
+{
+	double Re=0, Im=0;
+	is >> Re >> Im;
+
+	c.setRealteil(Re);
+	c.setImaginaerteil(Im);
+
+	return is;
 }
