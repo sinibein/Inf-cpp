@@ -76,7 +76,7 @@ istream& operator>>(istream& is, Complex& c)
 }
 
 
-Complex Complex::operator/(const Complex& c2)
+Complex Complex::operator/(const Complex& c2) throw(invalid_argument)
 {
 	double re, im,
 		a = this->re,
@@ -84,6 +84,9 @@ Complex Complex::operator/(const Complex& c2)
 		c = c2.re,
 		d = c2.im;
 	
+	if (c == 0.0 && d == 0.0)
+		throw invalid_argument("Fehler: Division durch Null");
+
 	re = (a * c + b * d) / (c * c + d * d);
 	im = (b * c - a * d) / (c * c + d * d);
 	return Complex(re, im);
