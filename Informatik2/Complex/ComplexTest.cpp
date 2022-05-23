@@ -18,5 +18,13 @@ int main()
 
 	cout << "Komplexe Zahl im Format \"a+bi\" eingeben: ";
 	cin >> c4;
-	cout << c4;
+	cout << c4 << endl;
+
+	cout << "Division von Komplexen Zahlen:" << endl;
+	Complex c5(4, 3);
+	Complex c6(2, 2);
+	cout << "z1 = " << c5 << endl;
+	cout << "z2 = " << c6 << endl;
+	Complex c7 = (c5 / c6);
+	cout << "z1/z2 = " << c7 << endl;
 }
