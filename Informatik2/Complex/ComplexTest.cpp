@@ -27,4 +27,14 @@ int main()
 	cout << "z2 = " << c6 << endl;
 	Complex c7 = (c5 / c6);
 	cout << "z1/z2 = " << c7 << endl;
+
+	cout << "Division durch Null:" << endl;
+	Complex c0(0, 0);
+	try {
+		Complex c8 = c5 / c0;
+	}
+	catch (invalid_argument& e)
+	{
+		cout << e.what();
+	}
 }
