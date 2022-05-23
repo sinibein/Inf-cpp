@@ -1,5 +1,4 @@
 #pragma once
-
 class Complex {
 private:
 	double re, im;
