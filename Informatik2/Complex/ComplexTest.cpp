@@ -16,4 +16,7 @@ int main()
 	Complex c4 = c2 - c1;
 	cout << c4.getRealteil() << " + " << c4.getImaginaerteil() << "i" << endl;
 
+	cout << "Komplexe Zahl im Format \"a+bi\" eingeben: ";
+	cin >> c4;
+	cout << c4;
 }
